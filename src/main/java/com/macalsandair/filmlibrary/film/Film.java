@@ -7,12 +7,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity(name = "Film")
 @Table(name = "film")
 @Getter
 @Setter
+@NoArgsConstructor
 public class Film {
 	
 	@Id
@@ -29,5 +31,22 @@ public class Film {
 	private String filmCompany;
 	private Long budget;
 	private int yearOfRelease;
+	
+	public Film(String name, String director, String shortDescription, int rating, String countryOfOrigin, String genre,
+			String[] actors, String filmCompany, Long budget, int yearOfRelease) {
+		super();
+		this.name = name;
+		this.director = director;
+		this.shortDescription = shortDescription;
+		this.rating = rating;
+		this.countryOfOrigin = countryOfOrigin;
+		this.genre = genre;
+		this.actors = actors;
+		this.filmCompany = filmCompany;
+		this.budget = budget;
+		this.yearOfRelease = yearOfRelease;
+	}
+	
+	
 	
 }
