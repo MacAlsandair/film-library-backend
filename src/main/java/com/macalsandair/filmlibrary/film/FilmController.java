@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,11 +24,8 @@ public class FilmController {
 	}
 	
 	@PostMapping("/add")
-	public ResponseEntity<Film> addNewFilm (String name, String director, String shortDescription, int rating, String countryOfOrigin, String genre,
-			String[] actors, String filmCompany, Long budget, int yearOfRelease) {
-		Film newFilm = new Film (name, director, shortDescription, rating, countryOfOrigin, genre,
-			actors, filmCompany, budget, yearOfRelease);
-		filmRepository.save(newFilm);
+	public ResponseEntity<Film> addNewFilm (@RequestBody Film film) {
+		Film newFilm = filmRepository.save(film);
 		return new ResponseEntity<> (newFilm, HttpStatus.OK);
 	}
 	
