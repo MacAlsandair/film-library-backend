@@ -1,5 +1,7 @@
 package com.macalsandair.filmlibrary.film;
 
+import java.io.Serializable;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,10 +14,7 @@ import lombok.Setter;
 
 @Entity(name = "Film")
 @Table(name = "film")
-@Getter
-@Setter
-@NoArgsConstructor
-public class Film {
+public class Film implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -44,6 +43,98 @@ public class Film {
 		this.actors = actors;
 		this.filmCompany = filmCompany;
 		this.budget = budget;
+		this.yearOfRelease = yearOfRelease;
+	}
+
+	public Film() {
+		super();
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDirector() {
+		return director;
+	}
+
+	public void setDirector(String director) {
+		this.director = director;
+	}
+
+	public String getShortDescription() {
+		return shortDescription;
+	}
+
+	public void setShortDescription(String shortDescription) {
+		this.shortDescription = shortDescription;
+	}
+
+	public int getRating() {
+		return rating;
+	}
+
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+
+	public String getCountryOfOrigin() {
+		return countryOfOrigin;
+	}
+
+	public void setCountryOfOrigin(String countryOfOrigin) {
+		this.countryOfOrigin = countryOfOrigin;
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+	public String[] getActors() {
+		return actors;
+	}
+
+	public void setActors(String[] actors) {
+		this.actors = actors;
+	}
+
+	public String getFilmCompany() {
+		return filmCompany;
+	}
+
+	public void setFilmCompany(String filmCompany) {
+		this.filmCompany = filmCompany;
+	}
+
+	public Long getBudget() {
+		return budget;
+	}
+
+	public void setBudget(Long budget) {
+		this.budget = budget;
+	}
+
+	public int getYearOfRelease() {
+		return yearOfRelease;
+	}
+
+	public void setYearOfRelease(int yearOfRelease) {
 		this.yearOfRelease = yearOfRelease;
 	}
 	
